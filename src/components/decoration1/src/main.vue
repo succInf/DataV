@@ -2,27 +2,29 @@
   <div class="dv-decoration-1" :ref="ref">
     <svg :width="`${svgWH[0]}px`" :height="`${svgWH[1]}px`" :style="`transform:scale(${svgScale[0]},${svgScale[1]});`">
 
-      <template
-        v-for="(point, i) in points"
-      >
-        <rect
-          v-if="Math.random() > 0.6"
-          :key="i"
-          :fill="mergedColor[0]"
-          :x="point[0] - halfPointSideLength"
-          :y="point[1] - halfPointSideLength"
-          :width="pointSideLength"
-          :height="pointSideLength"
-        >
-          <animate
-            v-if="Math.random() > 0.6"
-            attributeName="fill"
-            :values="`${mergedColor[0]};transparent`"
-            dur="1s"
-            :begin="Math.random() * 2"
-            repeatCount="indefinite"
-          />
-        </rect>
+      <template>
+        <div  v-for="(point, i) in points"
+              :key="i">
+          <rect
+              v-if="Math.random() > 0.6"
+
+              :fill="mergedColor[0]"
+              :x="point[0] - halfPointSideLength"
+              :y="point[1] - halfPointSideLength"
+              :width="pointSideLength"
+              :height="pointSideLength"
+          >
+            <animate
+                v-if="Math.random() > 0.6"
+                attributeName="fill"
+                :values="`${mergedColor[0]};transparent`"
+                dur="1s"
+                :begin="Math.random() * 2"
+                repeatCount="indefinite"
+            />
+          </rect>
+        </div>
+
       </template>
 
       <rect

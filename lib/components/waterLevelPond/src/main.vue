@@ -10,7 +10,6 @@
       </defs>
 
       <text
-        v-if="renderer"
         :stroke="`url(#${gradientId})`"
         :fill="`url(#${gradientId})`"
         :x="renderer.area[0] / 2 + 8"

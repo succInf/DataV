@@ -3,25 +3,28 @@
     <svg :width="`${svgWH[0]}px`" :height="`${svgWH[1]}px`" :style="`transform:scale(${svgScale[0]},${svgScale[1]});`">
 
       <template
-        v-for="(point, i) in points"
+
       >
-        <rect
-          :key="i"
-          :fill="mergedColor[0]"
-          :x="point[0] - halfPointSideLength"
-          :y="point[1] - halfPointSideLength"
-          :width="pointSideLength"
-          :height="pointSideLength"
-        >
-          <animate
-            v-if="Math.random() > 0.6"
-            attributeName="fill"
-            :values="`${mergedColor.join(';')}`"
-            :dur="Math.random() + 1 + 's'"
-            :begin="Math.random() * 2"
-            repeatCount="indefinite"
-          />
-        </rect>
+        <div  v-for="(point, i) in points"
+              :key="i">
+          <rect
+              :fill="mergedColor[0]"
+              :x="point[0] - halfPointSideLength"
+              :y="point[1] - halfPointSideLength"
+              :width="pointSideLength"
+              :height="pointSideLength"
+          >
+            <animate
+                v-if="Math.random() > 0.6"
+                attributeName="fill"
+                :values="`${mergedColor.join(';')}`"
+                :dur="Math.random() + 1 + 's'"
+                :begin="Math.random() * 2"
+                repeatCount="indefinite"
+            />
+          </rect>
+        </div>
+
       </template>
     </svg>
   </div>
